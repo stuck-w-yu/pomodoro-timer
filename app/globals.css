@@ -1,26 +1,103 @@
 @import "tailwindcss";
 
+@theme {
+  --font-retro: var(--font-retro);
+
+  --color-background: #2D1B2E;
+  /* Deep Warm Purple-Brown */
+  --color-foreground: #FFD93D;
+  /* Sunshine Yellow */
+
+  /* Retro Sunset Palette */
+  --color-retro-orange: #FF6B6B;
+  /* Focus */
+  --color-retro-yellow: #FFD93D;
+  /* Short Break */
+  --color-retro-pink: #FF9FF3;
+  /* Long Break */
+
+  --color-retro-focus: #FF6B6B;
+  --color-retro-short: #FFD93D;
+  --color-retro-long: #FF9FF3;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #4a2222, #1a0b12);
+  /* Sunset gradient */
+  color: var(--color-foreground);
+  font-family: var(--font-retro);
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* CRT Scanline Effect (Adjusted for warmer tones) */
+.scanlines {
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.1));
+  background-size: 100% 4px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  animation: scroll 10s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(4px);
+  }
+}
+
+/* Text Glow (Softer, Warmer) */
+.text-glow {
+  text-shadow: 0 0 4px currentColor, 0 0 12px currentColor;
+}
+
+.text-glow-sm {
+  text-shadow: 0 0 2px currentColor;
+}
+
+/* Retro Box */
+.retro-box {
+  border: 4px solid currentColor;
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.retro-box:active {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* CRT Flicker */
+@keyframes flicker {
+  0% {
+    opacity: 0.98;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.98;
+  }
+}
+
+.crt-flicker {
+  animation: flicker 0.2s infinite;
 }
