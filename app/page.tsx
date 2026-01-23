@@ -15,7 +15,7 @@ export default function Home() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   return (
-    <main className="min-h-screen bg-transparent text-white flex flex-col items-center justify-center p-6 relative overflow-hidden font-retro selection:bg-retro-green selection:text-black">
+    <main className="min-h-screen bg-transparent text-white flex flex-col items-center justify-start md:justify-center p-6 pt-20 pb-36 relative font-retro selection:bg-retro-green selection:text-black">
       {/* CRT Scanline Overlay */}
       <div className="scanlines" />
 
@@ -75,8 +75,16 @@ export default function Home() {
       />
 
       {/* Footer / Credits */}
-      <div className="fixed bottom-6 text-zinc-700 text-sm font-mono tracking-widest z-50">
-        SYSTEM.READY...
+      <div className="fixed bottom-6 text-zinc-700 text-sm font-mono tracking-widest z-50 flex flex-col items-center gap-1">
+        <span>SYSTEM.READY...</span>
+        <a
+          href="https://wahyufirmansyah.my.id"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[10px] opacity-50 text-white hover:opacity-100 hover:text-retro-green transition-all cursor-pointer"
+        >
+          © 2026 Wahyu Firmansyah
+        </a>
       </div>
     </main>
   );

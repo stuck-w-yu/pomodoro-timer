@@ -30,8 +30,8 @@ body {
   /* Sunset gradient */
   color: var(--color-foreground);
   font-family: var(--font-retro);
-  overflow: hidden;
-  height: 100vh;
+  /* overflow: hidden; Removed to allow scrolling */
+  min-height: 100vh;
 }
 
 /* CRT Scanline Effect (Adjusted for warmer tones) */
